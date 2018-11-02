@@ -8,19 +8,19 @@ import javax.persistence.Id;
 
 @Entity
 public class Trainee {
-	
+
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Id
 	@Column(name = "trainee_Id")
 	private Long traineeId;
 	@Column(name = "full_Name", length = 250)
 	private String fullName;
-	
+
 	public Trainee() {
 	}
-	
+
 	public Trainee(String fullName) {
-		this.fullName = fullName;		
+		this.fullName = fullName;
 	}
 
 	public Long getTraineeId() {
@@ -38,7 +38,5 @@ public class Trainee {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-	
-	
 
 }
