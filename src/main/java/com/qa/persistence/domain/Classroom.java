@@ -19,9 +19,9 @@ public class Classroom {
 	private Long classroomId;
 	@Column(name = "classroom_Trainer", length = 200)
 	private String trainer;
-	/*@OneToMany
-	@Column(name = "trainees")
-	private Trainee trainee;*/
+	/*@OneToMany(cascade=CascadeType.All)
+	@JoinColumn(name = "trainees")
+	private HashMap<> trainee;*/
 
 	public Classroom() {
 	}

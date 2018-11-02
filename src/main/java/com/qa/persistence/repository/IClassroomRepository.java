@@ -6,7 +6,7 @@ public interface IClassroomRepository {
 	
 	String createClassroom(String classroom);
 	
-	String updateClassroom(String classroom);
+	String updateClassroom(String classroomToUpdate);
 	
 	String deleteClassroom(Long id);
 	

@@ -2,16 +2,12 @@ package com.qa.service.business;
 
 import javax.inject.Inject;
 
-import org.apache.log4j.Logger;
-
 import com.qa.persistence.repository.ClassroomdbRepository;
 
 public class ClassroomServiceImpl implements IClassroomService{
 
 	@Inject
 	private ClassroomdbRepository repo;
-	
-	private static final Logger LOGGER = Logger.getLogger(IClassroomService.class);
 
 	public String getAllClassrooms() {
 		return repo.getAllClassrooms();
@@ -23,8 +19,8 @@ public class ClassroomServiceImpl implements IClassroomService{
 	}
 
 	@Override
-	public String updateClassroom(String classroom) {
-		return repo.updateClassroom(classroom);
+	public String updateClassroom(String classroomToUpdate) {
+		return repo.updateClassroom(classroomToUpdate);
 	}
 
 	@Override

@@ -42,12 +42,14 @@ public class ClassroomdbRepository implements IClassroomRepository {
 
 	@Override
 	@Transactional(REQUIRED)
-	public String updateClassroom(String classroom) {
-		Classroom classroom1 = util.getObjectForJSON(classroom, Classroom.class);
-		Long classroomInDB = classroom1.getClassroomId();
-		deleteClassroom(classroomInDB);
-		createClassroom(classroom1.toString());
-		return "Classroom " + classroomInDB + "has been updated";
+	public String updateClassroom(String classroomToUpdate) {
+		Classroom updatedClassroom = util.getObjectForJSON(classroomToUpdate, Classroom.class);
+		Classroom classroomFromDB = findClassroom(updatedClassroom.getClassroomId());
+		if (classroomFromDB != null) {
+			crManager.merge(updatedClassroom);
+			return "{\"message\": \"account sucessfully updated\"}";
+		}
+		else return "{\"message\": \"account does not exist\"}";
 	}
 
 	@Override
